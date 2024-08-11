@@ -350,6 +350,7 @@ option {
     width: 300px;
   }
 }
+
 .todo__description {
   width: 100px;
   color: var(--color-grey-text);
