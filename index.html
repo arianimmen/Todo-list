@@ -9,6 +9,17 @@
   </head>
   <body>
     <!---------------------------- Sidebar ---------------------------------->
+    <div class="greeting ">
+      <form>
+        <label>Enter your name</label>
+        <input type="text" name="greeting" id="greeting" autocomplete="off"/>
+        <button type="submit" class="greeting__submit">submit</button>
+      </form>
+    </div>
+
+    <div class="pop_up_task_back"></div>
+    <div class="pop_up_edit_back"></div>
+
     <div class="main-container container">
       <div class="sidebar">
         <div class="sidebar__todos__submit sidebar__items todos__submit">
@@ -24,6 +35,30 @@
           />
           <span class="todos__submit__text">Add task</span>
         </div>
+
+        <div
+          class="sidebar__all sidebar__items sidebar__items__img"
+          data-status="all"
+        >
+          <img src="./assets/images/icons8-complete.svg" alt="checkIcon" />
+          <span class="sidebar__completed__btn">All Tasks</span>
+        </div>
+
+        <div
+          class="sidebar__leftTodo sidebar__items sidebar__items__img"
+          data-status="uncompleted"
+        >
+          <img src="./assets/images/icons8-cross.svg" alt="checkIcon" />
+          <span class="sidebar__completed__btn">Left to do</span>
+        </div>
+
+        <div
+          class="sidebar__completed sidebar__items sidebar__items__img"
+          data-status="completed"
+        >
+          <img src="./assets/images/icons8-complete.svg" alt="checkIcon" />
+          <span class="sidebar__completed__btn">Completed</span>
+        </div>
       </div>
 
       <!--------------------------- Header ---------------------------------->
@@ -34,33 +69,74 @@
           class="header__menu__icon"
         />
         <p class="header__title">My Projects</p>
+        <select name="status" id="status" class="header__options">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="notcompleted">Not Completed</option>
+        </select>
       </div>
+
       <!------------------------ Todos section ------------------------------>
+
       <div class="main">
-        <div class="pop-up">
+        <!-- Pop up add -->
+        <div class="pop-up addtask">
           <form>
-            <input type="text" placeholder="Task name" class="pop-up__title" />
+            <p># Add task</p>
+            <input
+              type="text"
+              placeholder="Task name"
+              class="pop-up__title addtask__title"
+            />
             <input
               type="text"
               placeholder="Description"
-              class="pop-up__description"
+              class="pop-up__description addtask__description"
             />
             <div class="pop-up__buttons">
-              <button type="button" class="pop-up__confirm__btn">
-                Confirm
-              </button>
+              <button type="button" class="pop-up__confirm__btn">Add</button>
               <button type="reset" class="pop-up__cancel__btn">Cancel</button>
             </div>
           </form>
         </div>
 
-        <!-- ! -->
-        <h1 class="todos__title">Routine</h1>
+        <!-- Pop up edit -->
+        <div class="pop-up edit-task">
+          <form>
+            <p># Edit task</p>
+            <input
+              type="text"
+              placeholder="Task name"
+              class="pop-up__title pop-up__edit__title"
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              class="pop-up__description pop-up__edit__description"
+            />
+            <div class="pop-up__buttons">
+              <button type="button" class="pop-up__confirm__btn confirm_edit">
+                Confirm
+              </button>
+              <button
+                type="reset"
+                class="pop-up__cancel__btn pop-up__cancel__btn-edit"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <h1 class="todos__title">Tasks</h1>
         <ul class="todos__container">
           <!-- todo -->
           <!-- <li class="todos__self">
             <div class="todo__self__left">
-              <div class="todo__check"></div>
+              <div class="todo__check">
+                
+                <div class="add_circle"></div> 
+              </div>
               <div class="todo__text">
                 <p class="todo__title">ETWAS</p>
                 <p class="todo__description">etwas</p>
@@ -98,10 +174,11 @@
           <img
             src="./assets/images/75fbe75fe1d2a7ec59fc1bdb28e56b83.png"
             alt="image of a suitcase"
+            class="unique_image"
           />
-          <h3>Have a marvelous day off, Arian!</h3>
+          <h3 class="Username_place">Have a marvelous day off, Arian!</h3>
           <p>
-            Schedule days off in the Productivity tab of your Settings menu.
+            Some goals are worth every effort.
           </p>
         </div>
       </div>
