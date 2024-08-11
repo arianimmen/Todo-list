@@ -494,3 +494,15 @@ option {
     width: 405px;
   }
 }
+
+.checkbox-container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-container label{
+  font-size: 1rem;
+  margin-left: 1rem;
+}

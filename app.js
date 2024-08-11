@@ -28,6 +28,7 @@ const greeting__submit = document.querySelector(".greeting__submit");
 const greeting_input = document.querySelector("#greeting");
 const greeting_section = document.querySelector(".greeting");
 const username_place = document.querySelector(".Username_place");
+const checkbox = document.querySelector("#checkbox");
 
 //----------------------------- Pop up logic --------------------------------
 
@@ -65,7 +66,7 @@ function addTodos(e) {
       date: new Date().toISOString(),
       isCompleted: false,
     };
-    todos.push(Todo);
+    saveTodos(Todo);
     closePopup(e);
     filtering();
     pop_up_title.value = "";
@@ -128,9 +129,11 @@ function addingToDom(todos, status = "Tasks") {
 
 // ------------------------ Removing from the array -------------------------------
 function removeFromTodos(e) {
+  let todos = getAllTodos();
   id = Number(e.target.dataset.todoid);
   todos = todos.filter((todo) => todo.id !== id);
   sorting(todos);
+  localStorage.setItem("todos", JSON.stringify(todos));
   filtering();
   if (todos_container.innerHTML === "") {
     todos_image_section.classList.remove("hidden");
@@ -147,12 +150,14 @@ function sorting(todos) {
 // ------------------------- Checking function -----------------------------------
 
 function checked(e) {
+  let todos = getAllTodos();
   todos.forEach((todo) => {
     const id = Number(e.target.dataset.todoid);
     if (todo.id === id) {
       todo.isCompleted = !todo.isCompleted;
     }
   });
+  localStorage.setItem("todos", JSON.stringify(todos));
   filtering();
 }
 // ------------------------------ Filtering -------------------------------------
@@ -164,6 +169,7 @@ header_options.addEventListener("change", (e) => {
 
 function filtering() {
   // console.log(e.target.value);
+  const todos = getAllTodos();
   if (current_status === "all") addingToDom(todos);
   else if (current_status === "completed") {
     const filteredTodos = todos.filter((todo) => {
@@ -219,6 +225,7 @@ function resetColors() {
 // ----------------------- Editing todos ---------------------------
 
 function editing(e) {
+  const todos = getAllTodos();
   const id = Number(e.target.dataset.todoid);
   todos.forEach((todo) => {
     if (todo.id === id) {
@@ -234,6 +241,7 @@ function editing(e) {
       if (todo.id === id) {
         todo.title = pop_up_edit_title.value;
         todo.description = pop_up_edit_description.value;
+        localStorage.setItem("todos", JSON.stringify(todos));
       }
     });
     filtering();
@@ -251,21 +259,60 @@ function removeEditPopup() {
 }
 
 // --------------------- Greeting Section Logic -----------------------
+const remember_me_checker = JSON.parse(localStorage.getItem("username"));
+if (remember_me_checker != null) {
+  greeting_section.classList.add("hidden");
+}
+
+let checkbox_value = false;
 greeting__submit.addEventListener("click", greetingFunction);
+checkbox.addEventListener("change", (e) => {
+  checkbox_value = e.target.checked;
+});
 
 function greetingFunction(e) {
   e.preventDefault();
-  const name = greeting.value.trim().toLowerCase();
-  username_place.textContent = `Have a marvelous day off, ${
-    name[0].toUpperCase() + name.slice(1).toLowerCase()
-  }! `;
+  if (greeting.value === "") {
+    alert("Enter a username");
+  } else {
+    const name = greeting.value.trim().toLowerCase();
+    username_place.textContent = `Have a marvelous day off, ${
+      name[0].toUpperCase() + name.slice(1).toLowerCase()
+    }! `;
 
-  if (name === "ally") {
-    const unique_image = document.querySelector(".unique_image");
-    unique_image.src = "./assets/images/unique3.png";
-    username_place.textContent =
-      "Every goal starts with a first step, no matter how impossible it seems.";
+    if (name === "ally") {
+      const unique_image = document.querySelector(".unique_image");
+      unique_image.src = "./assets/images/unique3.png";
+      username_place.textContent =
+        "Every goal starts with a first step, no matter how impossible it seems.";
+    }
+
+    greeting_section.classList.add("hidden");
+    if (checkbox_value === true) {
+      localStorage.setItem("username", JSON.stringify(name));
+    }
   }
+}
 
-  greeting_section.classList.add("hidden");
+// --------------------- Creating from LocalStorage -------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const todos = getAllTodos();
+  addingToDom(todos);
+  if (todos.length != 0) {
+    todos_image_section.classList.add("hidden");
+  }
+});
+
+// ---------------------- Local Storage (Just used for demo!) ----------------------------
+
+function getAllTodos() {
+  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  return savedTodos;
+}
+
+function saveTodos(todos) {
+  const savedTodos = getAllTodos();
+  savedTodos.push(todos);
+  localStorage.setItem("todos", JSON.stringify(savedTodos));
+  return saveTodos;
 }
