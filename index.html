@@ -1,14 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-</head>
-<body>
-    <header class="header">
-        <img src="./assets/images/Vector.svg" alt="menu icon" class="header__icon">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+  </head>
+  <body>
+    <!---------------------------- Sidebar ---------------------------------->
+    <div class="main-container container">
+      <div class="sidebar">
+        <div class="sidebar__todos__submit sidebar__items todos__submit">
+          <img
+            src="./assets/images/icons8-plus.svg"
+            alt="plus icon"
+            class="image1"
+          />
+          <img
+            src="./assets/images/icons8-plus2.svg"
+            alt="plus icon"
+            class="image2"
+          />
+          <span class="todos__submit__text">Add task</span>
+        </div>
+      </div>
+
+      <!--------------------------- Header ---------------------------------->
+      <div class="header">
+        <img
+          src="./assets/images/Vector.svg"
+          alt="menu icon"
+          class="header__menu__icon"
+        />
         <p class="header__title">My Projects</p>
-    </header>
-</body>
+      </div>
+      <!------------------------ Todos section ------------------------------>
+      <div class="main">
+        <div class="pop-up">
+          <form>
+            <input type="text" placeholder="Task name" class="pop-up__title" />
+            <input
+              type="text"
+              placeholder="Description"
+              class="pop-up__description"
+            />
+            <div class="pop-up__buttons">
+              <button type="button" class="pop-up__confirm__btn">
+                Confirm
+              </button>
+              <button type="reset" class="pop-up__cancel__btn">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ! -->
+        <h1 class="todos__title">Routine</h1>
+        <ul class="todos__container">
+          <!-- todo -->
+          <!-- <li class="todos__self">
+            <div class="todo__self__left">
+              <div class="todo__check"></div>
+              <div class="todo__text">
+                <p class="todo__title">ETWAS</p>
+                <p class="todo__description">etwas</p>
+              </div>
+            </div>
+
+            <div class="todos__self__right">
+              <img
+                src="./assets/images/8666806_edit_write_pen_icon.svg"
+                alt="edit icon"
+                class="todo__edit"
+              />
+              <img
+                src="./assets/images/4781812_bin_delete_file_garbage_recycle_icon.svg"
+                alt="trashcan icon"
+                class="todo__remove"
+              />
+            </div>
+          </li> -->
+        </ul>
+        <span class="todos__submit">
+          <img
+            src="./assets/images/icons8-plus.svg"
+            alt="plus icon"
+            class="image1"
+          />
+          <img
+            src="./assets/images/icons8-plus2.svg"
+            alt="plus icon"
+            class="image2"
+          />
+          <span class="todos__submit__text">Add task</span>
+        </span>
+        <div class="todos__image-section">
+          <img
+            src="./assets/images/75fbe75fe1d2a7ec59fc1bdb28e56b83.png"
+            alt="image of a suitcase"
+          />
+          <h3>Have a marvelous day off, Arian!</h3>
+          <p>
+            Schedule days off in the Productivity tab of your Settings menu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
 </html>

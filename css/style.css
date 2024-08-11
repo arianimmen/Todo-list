@@ -1,0 +1,356 @@
+/* -------------------------------- Reset ---------------------------------- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.container {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+.main .hidden{
+  display: none;
+}
+
+/* ------------------------------- Root ----------------------------------- */
+
+:root {
+  --color-primary: #dc4c3e;
+  --color-primary-dark: #ae3a30;
+  --color-white-light: #ffffff;
+  --color-white-dark: #fdfaf8;
+  --color-grey-light: #f5f1ef;
+  --color-black-title: #202020;
+  --color-grey-text: #535353;
+}
+
+/* ------------------------------ Typography ----------------------------- */
+
+h1 {
+  font-size: 2rem;
+  color: var(--color-black-title);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--color-grey-text);
+}
+
+p {
+  font-size: 1.5rem;
+  color: var(--color-black-title);
+}
+
+/* ----------------------------- Header ---------------------------------- */
+
+.main-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.header {
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 13px;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.header__title {
+  font-size: 1rem;
+  margin-left: 1.2rem;
+  color: var(--color-grey-text);
+}
+
+@media screen and (min-width: 750px) {
+  .header__menu__icon {
+    display: none;
+  }
+
+  .main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 3rem;
+  }
+}
+/* ------------------------------------ Main Todolists -----------------------------------*/
+
+.main {
+  position: relative;
+  padding: 0rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.todos__title {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.todos__submit {
+  position: relative;
+}
+
+.main .todos__submit {
+  width: 100px;
+  position: relative;
+}
+
+.todos__submit__text {
+  margin-left: 1.7rem;
+  color: var(--color-grey-text);
+}
+
+.todos__submit .image2 {
+  position: absolute;
+  top: -2px;
+}
+
+.todos__submit .image1 {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
+
+.image1 {
+  width: 15px;
+}
+
+.image2 {
+  display: none;
+}
+
+.main .todos__submit:hover {
+  cursor: pointer;
+  .image2 {
+    display: block;
+  }
+  .image1 {
+    display: none;
+  }
+  .todos__submit__text {
+    color: var(--color-primary);
+  }
+}
+
+.todos__image-section {
+  margin-top: 2rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos__image-section img {
+  width: 200px;
+}
+
+.todos__image-section h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.todos__image-section p {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: normal;
+  color: var(--color-grey-text);
+  text-align: center;
+}
+
+/* ----------- Pop up form ------------ */
+.pop-up {
+  display: none;
+  padding: 2rem;
+  position: absolute;
+  top: 70px;
+  max-width: 1580px;
+  width: 70%;
+  background-color: var(--color-white-light);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.209);
+  z-index: 20;
+  border-radius: 10px;
+}
+
+.block {
+  display: block;
+}
+
+.pop-up form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.pop-up form input {
+  width: 100%;
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  text-wrap: wrap;
+}
+
+.pop-up__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.pop-up__description {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.pop-up__buttons {
+  align-self: flex-end;
+}
+
+.pop-up__confirm__btn {
+  background-color: var(--color-primary);
+  font-size: 0.7rem;
+  color: white;
+  outline: none;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+.pop-up__cancel__btn {
+  background-color: rgb(232, 232, 232);
+  font-size: 0.7rem;
+  color: var(--color-black-title);
+  outline: none;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+.pop-up__confirm__btn:hover,
+.pop-up__cancel__btn:hover {
+  cursor: pointer;
+}
+
+/* ----- todos container and items ---- */
+
+.todos__self {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  border-bottom: #dddddd 1px solid;
+}
+
+.todo__check {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-grey-text);
+  border-radius: 100%;
+  margin-right: 0.9rem;
+}
+
+.todo__check {
+  cursor: pointer;
+}
+
+.todo__self__left {
+  display: flex;
+  
+}
+
+.todo__title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.todo__description {
+  color: var(--color-grey-text);
+  font-size: 0.8rem;
+}
+
+.todos__self__right {
+  display: none;
+  height: 20px;
+  /* display: flex; */
+}
+
+.todos__self__right img {
+  padding: 0rem 0.5rem;
+}
+
+.todos__self:hover {
+  .todos__self__right {
+    display: flex;
+    height: 20px;
+  }
+}
+
+.todos__self__right img:hover {
+  cursor: pointer;
+}
+
+/* ----------------------- Sidebar -----------------------------*/
+.main-container .sidebar {
+  display: none;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.sidebar__items {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 9px;
+}
+
+.sidebar__items:hover {
+  background-color: var(--color-grey-light);
+  cursor: pointer;
+}
+
+.sidebar__todos__submit .image1 {
+  display: none;
+}
+
+.sidebar__todos__submit .image2 {
+  display: block;
+  left: 26px;
+  top: 4px;
+}
+
+.sidebar__todos__submit span {
+  color: var(--color-primary-dark);
+  font-weight: 500;
+}
+
+@media screen and (min-width: 750px) {
+  .main-container .sidebar {
+    background-color: var(--color-white-dark);
+    grid-row: 1 / 3;
+    display: block;
+  }
+}
