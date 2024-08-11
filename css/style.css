@@ -18,6 +18,9 @@
   display: none;
 }
 
+body {
+  background-color: white;
+}
 /* ------------------------------- Root ----------------------------------- */
 
 :root {
@@ -291,6 +294,10 @@ option {
 /* ----- todos container and items ---- */
 
 .todos__self {
+  overflow: auto;
+  white-space: wrap;
+  text-overflow: ellipsis;
+
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -320,12 +327,31 @@ option {
 }
 
 .todo__title {
+  width: 70px;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
 }
 
+@media screen and (min-width: 325px) {
+  .todo__title {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .todo__title {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 525px) {
+  .todo__title {
+    width: 300px;
+  }
+}
 .todo__description {
+  width: 100px;
   color: var(--color-grey-text);
   font-size: 0.8rem;
 }
@@ -502,7 +528,7 @@ option {
   justify-content: center;
 }
 
-.checkbox-container label{
+.checkbox-container label {
   font-size: 1rem;
   margin-left: 1rem;
 }
