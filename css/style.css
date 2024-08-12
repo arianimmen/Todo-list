@@ -501,6 +501,10 @@ option {
   width: 100%;
 }
 
+.greeting input:hover {
+cursor: pointer;
+}
+
 .greeting button {
   background-color: var(--color-primary);
   font-size: 0.8rem;
@@ -510,6 +514,11 @@ option {
   border: 0;
   padding: 0.5rem;
   border-radius: 5px;
+}
+
+.greeting button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 7px #f153459c;
 }
 
 .hidden {
