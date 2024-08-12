@@ -280,13 +280,6 @@ function greetingFunction(e) {
       name[0].toUpperCase() + name.slice(1).toLowerCase()
     }! `;
 
-    if (name === "ally") {
-      const unique_image = document.querySelector(".unique_image");
-      unique_image.src = "./assets/images/unique3.png";
-      username_place.textContent =
-        "Every goal starts with a first step, no matter how impossible it seems.";
-    }
-
     greeting_section.classList.add("hidden");
     if (checkbox_value === true) {
       localStorage.setItem("username", JSON.stringify(name));
