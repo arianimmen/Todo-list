@@ -294,9 +294,7 @@ option {
 /* ----- todos container and items ---- */
 
 .todos__self {
-  overflow: auto;
-  white-space: wrap;
-  text-overflow: ellipsis;
+  overflow-wrap: break-word;
 
   display: flex;
   justify-content: space-between;
