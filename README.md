@@ -26,5 +26,5 @@
 ## Demo
 https://arianimmen.github.io/Todo-list/
 
-![Screenshot from 2024-08-31 19-43-40](https://github.com/user-attachments/assets/349721dc-230c-47e6-8f2a-83d7a068a8a6)
-![Screenshot from 2024-08-31 19-43-46](https://github.com/user-attachments/assets/9f1598f8-41f9-4fbb-a546-b650068c2aa4)
+![Screenshot from 2024-08-31 19-45-37](https://github.com/user-attachments/assets/16755936-766b-4f6c-8b1f-5e7292e6ceef)
+![Screenshot from 2024-08-31 19-45-43](https://github.com/user-attachments/assets/6061cafc-995d-4268-a68d-d7e6fbfe07fd)
